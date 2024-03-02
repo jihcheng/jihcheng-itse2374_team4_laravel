@@ -16,7 +16,7 @@ WORKDIR /app
 # If your composer.json file defines scripts that run during dependency installation and
 # reference your application source files, uncomment the line below to copy all the files
 # into this layer.
-# COPY . .
+COPY . .
 
 # Download dependencies as a separate step to take advantage of Docker's caching.
 # Leverage a bind mounts to composer.json and composer.lock to avoid having to copy them
@@ -39,7 +39,7 @@ RUN --mount=type=bind,source=composer.json,target=composer.json \
 # most recent version of that tag when you build your Dockerfile.
 # If reproducability is important, consider using a specific digest SHA, like
 # php@sha256:99cede493dfd88720b610eb8077c8688d3cca50003d76d1d539b0efc8cca72b4.
-FROM php:8.2-apache as final
+FROM php:8.2.13-apache as final
 
 # Your PHP application may require additional PHP extensions to be installed
 # manually. For detailed instructions for installing extensions can be found, see
@@ -71,9 +71,9 @@ FROM php:8.2-apache as final
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
 # Copy the app dependencies from the previous install stage.
-# COPY --from=deps app/vendor/ /var/www/html/vendor
+COPY --from=deps /app/vendor/ /var/www/html/vendor
 # Copy the app files from the app directory.
-# COPY vendor /var/www/html
+# COPY /vendor /var/www/html
 
 # Switch to a non-privileged user (defined in the base image) that the app will run under.
 # See https://docs.docker.com/go/dockerfile-user-best-practices/
