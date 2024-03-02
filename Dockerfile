@@ -2,7 +2,7 @@
 FROM php:8.2-cli
 
 RUN apt-get update -y && apt-get install -y libmcrypt-dev
-
+RUN composer install
 
 
 WORKDIR /app
