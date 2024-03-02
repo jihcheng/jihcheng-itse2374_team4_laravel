@@ -1,0 +1,32 @@
+<?php
+
+?>
+<!doctype html>
+   
+<head>
+	<meta charset="UTF-8">
+
+	
+   <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+   <meta name="description" content="PHP"/>
+   <meta name="keywords" content="ITSE2374 Team 4"/>
+   <meta name="author" content="Jack Chao"/>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title>ITSE2374 Team 4</title>
+
+   <style type="text/css">
+	
+		#mysubmit{color: black; background-color: #99ff33}
+		
+    </style>
+   
+</head>
+
+<?php 
+    echo "<frameset cols=\"16%,*\">
+	<frame src=\"index_left.php\" name=\"left_top\">  
+	<frame src=\"welcome.php\" name=\"pages\">
+</frameset>
+
+</html>";
+?>

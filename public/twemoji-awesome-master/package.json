@@ -1,0 +1,30 @@
+{
+  "name": "twemoji-awesome",
+  "version": "1.0.0",
+  "description": "Like [Font Awesome](https://fontawesome.com), but for [Twitter Emojis](http://twitter.github.io/twemoji/) 🎉",
+  "main": "build-css.js",
+  "dependencies": {
+    "node-fetch": "^2.6.0",
+    "slugify": "^1.4.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamludal/twemoji-awesome.git"
+  },
+  "keywords": [
+    "twemoji",
+    "awesome",
+    "twemoji-awesome",
+    "twemojis"
+  ],
+  "author": "iamludal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iamludal/twemoji-awesome/issues"
+  },
+  "homepage": "https://github.com/iamludal/twemoji-awesome#readme"
+}
