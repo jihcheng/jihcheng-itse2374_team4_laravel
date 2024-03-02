@@ -41,6 +41,14 @@ RUN --mount=type=bind,source=composer.json,target=composer.json \
 # php@sha256:99cede493dfd88720b610eb8077c8688d3cca50003d76d1d539b0efc8cca72b4.
 FROM php:8.2.13-apache as final
 
+# Enable Apache modules
+RUN a2enmod rewrite
+# Install PostgreSQL client and its PHP extensions
+RUN apt-get update \
+   # pgsql headers
+    && apt-get install -y libpq-dev \
+    && docker-php-ext-install pgsql pdo_pgsql pdo
+
 # Your PHP application may require additional PHP extensions to be installed
 # manually. For detailed instructions for installing extensions can be found, see
 # https://github.com/docker-library/docs/tree/master/php#how-to-install-more-php-extensions
@@ -57,7 +65,7 @@ FROM php:8.2.13-apache as final
 #     libpng-dev \
 # && rm -rf /var/lib/apt/lists/* \
 #     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-#     && docker-php-ext-install -j$(nproc) gd
+#     && docker-php-ext-install -j$(nproc) gd 
 #
 # Add PECL extensions, see
 # https://github.com/docker-library/docs/tree/master/php#pecl-extensions

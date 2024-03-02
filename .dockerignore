@@ -31,5 +31,7 @@
 **/secrets.dev.yaml
 **/values.dev.yaml
 
+# remove **/vendor  or it will fail for docker compose up --build
+
 LICENSE
 README.md
