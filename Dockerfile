@@ -71,9 +71,9 @@ FROM php:8.2-apache as final
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
 # Copy the app dependencies from the previous install stage.
-COPY --from=deps app/vendor/ /var/www/html/vendor
+# COPY --from=deps app/vendor/ /var/www/html/vendor
 # Copy the app files from the app directory.
-COPY ./vendor /var/www/html
+# COPY vendor /var/www/html
 
 # Switch to a non-privileged user (defined in the base image) that the app will run under.
 # See https://docs.docker.com/go/dockerfile-user-best-practices/
